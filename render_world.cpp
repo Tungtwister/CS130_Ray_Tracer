@@ -23,40 +23,21 @@ Render_World::~Render_World()
 Hit Render_World::Closest_Intersection(const Ray& ray)
 {
     // //TODO;
-    // Hit* closest_hit;
-    // double min_t = 2147483647;
-    // closest_hit.dist = min_t;
-    // Hit* orMiss;
-    // for(unsigned int i = 0; i < objects.size(); ++i)
-    // {
-    //     //figure out wtf intersection needs
-    //     orMiss = object[i]->Intersection(ray, 0);
-    //     if(orMiss.dist < closest_hit.dist && orMiss.dist >= small_t)
-    //     {
-    //         closest_hit = orMiss;
-    //     }
-    // }
-
-    // return closest_hit;
-
-    Object* closest_object = NULL;
-    
-    // int min_t = std::numeric_limits<int>::max();
-    float min_t = 9999;
-    
-    
-    for(unsigned i = 0; i < this->objects.size(); ++i){
-        std::vector<Hit> hits;
-        this->objects.at(i)->Intersection(ray, hits);
-        for(unsigned j = 0; j < hits.size(); ++j){
-            if(hits.at(j).t < min_t && hits.at(j).t > small_t){
-                closest_object = const_cast<Object*>(hits.at(j).object);
-                hit = hits.at(j);
-                min_t = hits.at(j).t;
-            }
+    Hit closest_hit;
+    double min_t = 2147483647;
+    closest_hit.dist = min_t;
+    Hit orMiss;
+    for(unsigned int i = 0; i < objects.size(); ++i)
+    {
+        //figure out wtf intersection needs
+        orMiss = object[i]->Intersection(ray, 0);
+        if(orMiss.dist < closest_hit.dist && orMiss.dist >= small_t)
+        {
+            closest_hit = orMiss;
         }
     }
-    return closest_object;
+
+    return closest_hit;
 }
 
 // set up the initial view ray and call
