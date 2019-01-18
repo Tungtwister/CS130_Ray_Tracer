@@ -22,20 +22,20 @@ Render_World::~Render_World()
 // to ensure that hit.dist>=small_t.
 Hit Render_World::Closest_Intersection(const Ray& ray)
 {
-    // //TODO;
     Hit closest_hit;
-    double min_t = 2147483647;
-    closest_hit.dist = min_t;
-    Hit orMiss;
-    for(unsigned int i = 0; i < objects.size(); ++i)
-    {
-        //figure out wtf intersection needs
-        orMiss = object[i]->Intersection(ray, 0);
-        if(orMiss.dist < closest_hit.dist && orMiss.dist >= small_t)
-        {
-            closest_hit = orMiss;
-        }
-    }
+    //TODO;
+    // double min_t = 2147483647;
+    // closest_hit.dist = min_t;
+    // Hit orMiss;
+    // for(unsigned int i = 0; i < objects.size(); ++i)
+    // {
+    //     //figure out wtf intersection needs
+    //     orMiss = objects[i]->Intersection(ray, 0);
+    //     if(orMiss.dist < closest_hit.dist && orMiss.dist >= small_t)
+    //     {
+    //         closest_hit = orMiss;
+    //     }
+    // }
 
     return closest_hit;
 }
@@ -67,22 +67,22 @@ void Render_World::Render()
 // or the background color if there is no object intersection
 vec3 Render_World::Cast_Ray(const Ray& ray,int recursion_depth)
 {
-    vec3 temp;
+    //vec3 temp;
     vec3 color;
-    TODO; // determine the color here
-    object* closehit;
-    closehit = Closest_Intersection(ray);
-    //this if statement is wack, fix this
-    vec3 intersect_point = ray.Point(//where is t);
-    vec3 normal1 = closehit.Normal(intersect_point);
-    if(closehit != 0)
-    {
-        color = closehit->material_shader->Shade_Surface(ray, intersect_point, normal1, recursion_depth);
-    }
-    else
-    {
-        color = this->background_shader->Shade_Surface(ray, temp, temp, recursion_depth);
-    }
+    // TODO; // determine the color here
+    // Object closehit;
+    // closehit = Closest_Intersection(ray);
+    // //this if statement is wack, fix this
+    // vec3 intersect_point = ray.Point(//where is t);
+    // vec3 normal1 = closehit.Normal(intersect_point);
+    // if(closehit != 0)
+    // {
+    //     color = closehit->material_shader->Shade_Surface(ray, intersect_point, normal1, recursion_depth);
+    // }
+    // else
+    // {
+    //     color = this->background_shader->Shade_Surface(ray, temp, temp, recursion_depth);
+    // }
 
     return color;
 }
