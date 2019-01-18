@@ -46,7 +46,7 @@ void Render_World::Render_Pixel(const ivec2& pixel_index)
     //check to make sure correct
     Ray ray;
 
-    ray.end_point = camera.position;
+    ray.endpoint = camera.position;
     ray.direction = (ray.endpoint - camera.World_Position(pixel_index)).normalized();
 
     vec3 color=Cast_Ray(ray,1);
