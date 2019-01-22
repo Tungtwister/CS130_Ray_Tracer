@@ -37,7 +37,7 @@ Hit Render_World::Closest_Intersection(const Ray& ray)
             closest_hit = orMiss;
         }
     }
-    std::cout << "made it" << endl;
+    std::cout << "made it\n";
     return closest_hit;
 }
 
