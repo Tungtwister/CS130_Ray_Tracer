@@ -25,19 +25,19 @@ Hit Render_World::Closest_Intersection(const Ray& ray)
     TODO;
     //theres a seg fault here somewhere
     Hit closest_hit;
-    // Hit orMiss;
-    // double min_t = 12345;
-    // closest_hit.dist = min_t;
+    Hit orMiss;
+    double min_t = 12345;
+    closest_hit.dist = min_t;
 
-    // for(unsigned int i = 0; i < objects.size(); ++i)
-    // {
-    //     orMiss = objects[i]->Intersection(ray, objects[i]->number_parts);
-    //     if(orMiss.dist < closest_hit.dist && orMiss.dist >= small_t)
-    //     {
-    //         closest_hit = orMiss;
-    //     }
-    // }
-    
+    for(unsigned int i = 0; i < objects.size(); ++i)
+    {
+        orMiss = objects[i]->Intersection(ray, objects[i]->number_parts);
+        if(orMiss.dist < closest_hit.dist && orMiss.dist >= small_t)
+        {
+            closest_hit = orMiss;
+        }
+    }
+    std::cout << "made it" << endl;
     return closest_hit;
 }
 
