@@ -39,7 +39,7 @@ Hit Sphere::Intersection(const Ray& ray, int part) const
     {
         return {0,0,0};
     }
-    else if(discr < 0)
+    else
     {
         return {0,0,0};
     }
