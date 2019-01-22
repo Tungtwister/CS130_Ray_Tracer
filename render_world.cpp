@@ -77,6 +77,7 @@ vec3 Render_World::Cast_Ray(const Ray& ray,int recursion_depth)
  
     Hit hit;
     hit = Closest_Intersection(ray);
+    std::cout << "cast ray\n";
     if(hit.object)
     {
         intersect_point = ray.Point(hit.dist);
@@ -87,7 +88,7 @@ vec3 Render_World::Cast_Ray(const Ray& ray,int recursion_depth)
     {
         color = this->background_shader->Shade_Surface(ray, temp, temp, recursion_depth);
     }
-
+    std::cout << "pls dont reach\n";
     return color;
 }
 
