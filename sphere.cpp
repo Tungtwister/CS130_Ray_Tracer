@@ -10,7 +10,7 @@ Hit Sphere::Intersection(const Ray& ray, int part) const
     vec3 u = ray.direction;
     vec3 v = ray.endpoint - center;
     
-    float a = 1
+    float a = 1;
     float b = 2 * dot(u, v);
     float c = dot(v, v) - (radius * radius);
     
@@ -18,7 +18,7 @@ Hit Sphere::Intersection(const Ray& ray, int part) const
     
     //finding t using quadratic equation
     float t0 =  (-b + sqrt(discr)) / (2 * a);
-	float t1 =  (-b - sqrt(discr)) / (2 * a);
+	//float t1 =  (-b - sqrt(discr)) / (2 * a);
     //there is an intersection
     if(discr > 0)
     {
