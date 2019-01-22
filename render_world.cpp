@@ -22,6 +22,7 @@ Render_World::~Render_World()
 // to ensure that hit.dist>=small_t.
 Hit Render_World::Closest_Intersection(const Ray& ray)
 {
+    TODO;
     Hit closest_hit;
     Hit orMiss;
     double min_t = 3.40282e+38;
@@ -42,6 +43,7 @@ Hit Render_World::Closest_Intersection(const Ray& ray)
 // set up the initial view ray and call
 void Render_World::Render_Pixel(const ivec2& pixel_index)
 {
+    TODO;
     //check to make sure correct
     Ray ray;
 
@@ -66,6 +68,7 @@ void Render_World::Render()
 // or the background color if there is no object intersection
 vec3 Render_World::Cast_Ray(const Ray& ray,int recursion_depth)
 {
+    TODO;
     vec3 color;
     vec3 intersect_point;
     vec3 normal;
