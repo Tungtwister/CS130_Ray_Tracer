@@ -27,6 +27,7 @@ Hit Sphere::Intersection(const Ray& ray, int part) const
             hit.object = this;
             hit.dist = t0;
             hit.part = part;
+            return hit;
         }
         else
         {
