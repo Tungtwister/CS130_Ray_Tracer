@@ -82,16 +82,16 @@ vec3 Render_World::Cast_Ray(const Ray& ray,int recursion_depth)
     //the seg fault is here
     // if(hit.object)
     // {
-        intersect_point = ray->Point(hit.dist);
-        std::cout << "inter point works\n";
-        norm = hit->object->Normal(intersect_point, hit.part);
-        std::cout << "normal works\n";
-        color = hit->object->material_shader->Shade_Surface(ray, intersect_point, norm, recursion_depth);
-        std::cout << "shade surface\n";
+        // intersect_point = ray.Point(hit.dist);
+        // std::cout << "inter point works\n";
+        // norm = hit.object->Normal(intersect_point, hit.part);
+        // std::cout << "normal works\n";
+        // color = hit.object->material_shader->Shade_Surface(ray, intersect_point, norm, recursion_depth);
+        // std::cout << "shade surface\n";
     // }
     // else
     // {
-    //     color = this->background_shader->Shade_Surface(ray, temp, temp, recursion_depth);
+        color = this->background_shader->Shade_Surface(ray, temp, temp, recursion_depth);
     // }
     std::cout << "pls dont reach\n";
     return color;
