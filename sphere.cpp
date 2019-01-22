@@ -4,7 +4,8 @@
 // Determine if the ray intersects with the sphere
 Hit Sphere::Intersection(const Ray& ray, int part) const
 {
-    //TODO;
+    TODO;
+    std::cout << "sphere shit\n";
     return {0,0,0};
 }
 
