@@ -37,7 +37,7 @@ Hit Render_World::Closest_Intersection(const Ray& ray)
             closest_hit = orMiss;
         }
     }
-    std::cout << "made it\n";
+    std::cout << "pls work\n";
     return closest_hit;
 }
 
@@ -79,12 +79,16 @@ vec3 Render_World::Cast_Ray(const Ray& ray,int recursion_depth)
     hit = Closest_Intersection(ray);
     std::cout << "well shit\n";
     //if hit exists
-    //if(hit.object > 0)
-    //{
+    //the seg fault is here
+    // if(hit.object)
+    // {
         intersect_point = ray.Point(hit.dist);
+        std::cout << "inter point works\n";
         normal = hit.object->Normal(intersect_point, hit.part);
+        std::cout << "normal works\n";
         color = hit.object->material_shader->Shade_Surface(ray, intersect_point, normal, recursion_depth);
-    //}
+        std::cout << "shade surface\n";
+    // }
     // else
     // {
     //     color = this->background_shader->Shade_Surface(ray, temp, temp, recursion_depth);
