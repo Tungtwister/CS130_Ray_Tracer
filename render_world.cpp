@@ -73,7 +73,7 @@ vec3 Render_World::Cast_Ray(const Ray& ray,int recursion_depth)
     vec3 color = {0,0,0};
     vec3 intersect_point = {0,0,0};
     vec3 norm = {0,0,0};
-    vec3 temp = = {0,0,0};
+    vec3 temp = {0,0,0};
  
     Hit hit = {0,0,0};
     hit = Closest_Intersection(ray);
