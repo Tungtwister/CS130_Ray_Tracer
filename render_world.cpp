@@ -33,7 +33,7 @@ Hit Render_World::Closest_Intersection(const Ray& ray)
     {
         std::vector<Hit> hits;
         orMiss = objects[i]->Intersection(ray, -1);
-        hits.pushback(orMiss);
+        hits.push_back(orMiss);
         for(unsigned int j = 0; j < hits.size(); ++j)
         {
             if(hits[j].dist < min_t && hits[j].dist >= small_t)
