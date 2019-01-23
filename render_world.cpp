@@ -27,20 +27,25 @@ Hit Render_World::Closest_Intersection(const Ray& ray)
     Hit closest_hit;
     Hit orMiss;
     double min_t = 12345;
-    closest_hit.dist = min_t;
+    //closest_hit.dist = min_t;
 
     for(unsigned int i = 0; i < objects.size(); ++i)
     {
-        std::vector<Hit> hits;
+        // std::vector<Hit> hits;
         orMiss = objects[i]->Intersection(ray, -1);
-        hits.push_back(orMiss);
-        for(unsigned int j = 0; j < hits.size(); ++j)
+        // hits.push_back(orMiss);
+        // for(unsigned int j = 0; j < hits.size(); ++j)
+        // {
+        //     if(hits[j].dist < min_t && hits[j].dist >= small_t)
+        //     {
+        //         closest_hit = hits[j];
+        //         min_t = closest_hit.dist;
+        //     }
+        // }
+        if(orMiss.dist < min_t && orMiss.dist >= small_t)
         {
-            if(hits[j].dist < min_t && hits[j].dist >= small_t)
-            {
-                closest_hit = hits[j];
-                min_t = closest_hit.dist;
-            }
+            closest_hit = orMiss;
+            min_t = orMiss.dist;
         }
     }
     std::cout << "pls work\n";
