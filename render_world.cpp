@@ -22,9 +22,8 @@ Render_World::~Render_World()
 // to ensure that hit.dist>=small_t.
 Hit Render_World::Closest_Intersection(const Ray& ray)
 {
-    TODO;
     Hit closest_hit = {0,0,0};
-    Hit orMiss {0,0,0};
+    Hit orMiss = {0,0,0};
     double min_t = 12345;
 
     for(unsigned int i = 0; i < objects.size(); ++i)
@@ -44,8 +43,6 @@ Hit Render_World::Closest_Intersection(const Ray& ray)
 // set up the initial view ray and call
 void Render_World::Render_Pixel(const ivec2& pixel_index)
 {
-    TODO;
-    //check to make sure correct
     Ray ray;
 
     ray.endpoint = camera.position;
@@ -69,22 +66,19 @@ void Render_World::Render()
 // or the background color if there is no object intersection
 vec3 Render_World::Cast_Ray(const Ray& ray,int recursion_depth)
 {
-    TODO;
     vec3 color = {0,0,0};
     vec3 intersect_point = {0,0,0};
     vec3 norm = {0,0,0};
     vec3 temp = {0,0,0};
  
-    Hit hit;
+    Hit hit = {0,0,0};
     hit = Closest_Intersection(ray);
     //std::cout << "well shit\n";
     //if hit exists
     if(hit.object)
     {
         intersect_point = ray.Point(hit.dist);
-        //std::cout << hit.object->Normal(intersect_point, -1) << " inter point works\n";
-        //seg faults right here
-        norm = hit.object->Normal(intersect_point, -1);
+        norm = hit.object->Normal(intersect_point, hit.part);
         //std::cout << "normal works\n";
         color = hit.object->material_shader->Shade_Surface(ray, intersect_point, norm, recursion_depth);
         //std::cout << "shade surface\n";
