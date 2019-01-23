@@ -81,7 +81,7 @@ vec3 Render_World::Cast_Ray(const Ray& ray,int recursion_depth)
     vec3 norm = {0,0,0};
     vec3 temp = {0,0,0};
  
-    Hit hit = {0,0,0};
+    Hit* hit;
     hit = Closest_Intersection(ray);
     std::cout << "well shit\n";
     //if hit exists
@@ -90,10 +90,10 @@ vec3 Render_World::Cast_Ray(const Ray& ray,int recursion_depth)
         intersect_point = ray.Point(hit.dist);
         std::cout << "inter point works\n";
         //seg faults right here
-        //norm = hit.object->Normal(intersect_point, -1);
-        norm = {1,2,3};
+        norm = hit->object->Normal(intersect_point, -1);
+        //norm = {1,2,3};
         std::cout << "normal works\n";
-        color = hit.object->material_shader->Shade_Surface(ray, intersect_point, norm, recursion_depth);
+        color = hit->object->material_shader->Shade_Surface(ray, intersect_point, norm, recursion_depth);
         std::cout << "shade surface\n";
     }
     else
