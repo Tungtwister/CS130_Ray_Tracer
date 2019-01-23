@@ -17,8 +17,8 @@ Hit Sphere::Intersection(const Ray& ray, int part) const
     float disc = pow(b,2) - 4 * a * c;
     
     //finding t using quadratic equation
-    float t0 =  (-b + sqrt(discr)) / (2 * a);
-	//float t1 =  (-b - sqrt(discr)) / (2 * a);
+    float t0 =  (-b + sqrt(disc)) / (2 * a);
+	//float t1 =  (-b - sqrt(disc)) / (2 * a);
     //there is an intersection
     if(disc > 0)
     {
@@ -35,7 +35,7 @@ Hit Sphere::Intersection(const Ray& ray, int part) const
         }
     }
     //technically one intersection 
-    else if(discr == 0)
+    else if(disc == 0)
     {
         return hit;
     }

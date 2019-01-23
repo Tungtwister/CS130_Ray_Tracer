@@ -10,13 +10,13 @@ Hit Plane::Intersection(const Ray& ray, int part) const
 {
     TODO;
     float t = (dot(normal, (x1 - ray.endpoint))) / dot(normal, ray.direction);
-    if(t > 0){
-        // hit
-        Hit temp;
-        temp.object = this;
-        temp.dist = t;
-        temp.part = part;
-        return temp;
+    Hit hit;
+    if(t > 0)
+    {
+        hit.object = this;
+        hit.dist = t;
+        hit.part = part;
+        return hit;
     }
     else
     {
