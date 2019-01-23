@@ -31,10 +31,16 @@ Hit Render_World::Closest_Intersection(const Ray& ray)
 
     for(unsigned int i = 0; i < objects.size(); ++i)
     {
+        std::vector<Hit> hits;
         orMiss = objects[i]->Intersection(ray, -1);
-        if((orMiss.dist < closest_hit.dist) && (orMiss.dist >= small_t))
+        hits.pushback(orMiss);
+        for(unsigned int j = 0; j < hits.size(); ++j)
         {
-            closest_hit = orMiss;
+            if(hits[j].dist < min_t && hits[j].dist >= small_t)
+            {
+                closest_hit = hits[j];
+                min_t = closest_hit.dist;
+            }
         }
     }
     std::cout << "pls work\n";
