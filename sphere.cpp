@@ -6,7 +6,7 @@ Hit Sphere::Intersection(const Ray& ray, int part) const
 {
     TODO;
     Hit hit = {this,0,0};
-    std::cout << "sphere shit\n";
+    //std::cout << "sphere shit\n";
     vec3 u = ray.direction;
     vec3 v = ray.endpoint - center;
     
