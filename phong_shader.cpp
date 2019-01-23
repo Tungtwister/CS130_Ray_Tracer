@@ -20,8 +20,10 @@ Shade_Surface(const Ray& ray,const vec3& intersection_point,
     
     //calulating ambient
     // Ia = Ra * La     0 <= Ra <= 1
-    std::cout << "world.ambient_color: " << world.ambient_color << endl; 
-    vec3 La = world.ambient_color * world.ambient_intensity;
+    std::cout << "world.ambient_color: " << world.ambient_color << "\n"; 
+    std::cout << "world.ambient_intensity: " << world.ambient_intensity << "\n";
+    std::cout << "this->color_ambient: " << this->color_ambient << "\n";
+    vec3 La = world.ambient_color * y;
     vec3 Ra = this->color_ambient;
     colorA =  La * Ra;
     
