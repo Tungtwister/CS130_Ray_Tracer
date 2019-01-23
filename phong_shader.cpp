@@ -10,5 +10,10 @@ Shade_Surface(const Ray& ray,const vec3& intersection_point,
 {
     vec3 color;
     TODO; //determine the color
+    vec3 colorA = {0,0,0}; //ambient
+    vec3 colorD = {0,0,0}; //diffuse
+    vec3 colorS = {0,0,0}; //specular
+    
+    color = colorA + colorD + colorS;
     return color;
 }
