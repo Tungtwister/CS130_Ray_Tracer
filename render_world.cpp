@@ -93,8 +93,7 @@ vec3 Render_World::Cast_Ray(const Ray& ray,int recursion_depth)
         //norm = hit.object->Normal(intersect_point, -1);
         norm = {1,2,3};
         std::cout << "normal works\n";
-        //color = hit.object->material_shader->Shade_Surface(ray, intersect_point, norm, recursion_depth);
-        color = {2,3,4};
+        color = hit.object->material_shader->Shade_Surface(ray, intersect_point, norm, recursion_depth);
         std::cout << "shade surface\n";
     }
     else
