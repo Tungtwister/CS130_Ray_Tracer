@@ -90,9 +90,11 @@ vec3 Render_World::Cast_Ray(const Ray& ray,int recursion_depth)
         intersect_point = ray.Point(hit.dist);
         std::cout << "inter point works\n";
         //seg faults right here
-        norm = hit.object->Normal(intersect_point, -1);
+        //norm = hit.object->Normal(intersect_point, -1);
+        norm = {1,2,3};
         std::cout << "normal works\n";
-        color = hit.object->material_shader->Shade_Surface(ray, intersect_point, norm, recursion_depth);
+        //color = hit.object->material_shader->Shade_Surface(ray, intersect_point, norm, recursion_depth);
+        color = {2,3,4};
         std::cout << "shade surface\n";
     }
     else
