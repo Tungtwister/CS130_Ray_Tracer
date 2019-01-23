@@ -15,7 +15,7 @@ Shade_Surface(const Ray& ray,const vec3& intersection_point,
     vec3 colorS = {0,0,0}; //specular
     
     //calulating ambient
-    colorA = this->world.ambient_color * this->world.ambient_intensity * this->color_ambient
+    colorA = this->world.ambient_color * this->world.ambient_intensity * this->color_ambient;
     
     color = colorA + colorD + colorS;
     return color;
