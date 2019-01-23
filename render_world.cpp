@@ -88,7 +88,7 @@ vec3 Render_World::Cast_Ray(const Ray& ray,int recursion_depth)
     if(hit.object)
     {
         intersect_point = ray.Point(hit.dist);
-        std::cout << intersect_point << " inter point works\n";
+        std::cout << hit.object->Normal(intersect_point, -1) << " inter point works\n";
         //seg faults right here
         norm = hit.object->Normal(intersect_point, -1);
         std::cout << "normal works\n";
