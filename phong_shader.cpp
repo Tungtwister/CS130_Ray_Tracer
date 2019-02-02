@@ -31,12 +31,19 @@ Shade_Surface(const Ray& ray,const vec3& intersection_point,
     vec3 Ld = {0,0,0};
     vec3 n = normal;
     vec3 l = {0,0,0};
+    float max;
     for(unsigned int i = 0; i < world.lights.size(); i++)
     {
         Ld = world.lights[i]->Emitted_Light(ray);
         l = world.lights[i].position;
         
-        Id = Rd * Ld * dot(n,l);
+        max = dot(n,l);
+        if(max < 0)
+        {
+            max = 0;
+        }
+        
+        Id = Rd * Ld * max;
     }
     
     
