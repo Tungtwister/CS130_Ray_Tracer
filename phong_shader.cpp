@@ -27,17 +27,17 @@ Shade_Surface(const Ray& ray,const vec3& intersection_point,
     //calculating diffuse
     // Id = Rd * Ld * max(dot(n,l),0)
     
-    // vec3 Rd = this->color_diffuse;
-    // vec3 Ld = {0,0,0};
-    // vec3 n = normal;
-    // vec3 l = {0,0,0};
-    // for(unsigned int i = 0; i < world.lights.size(); i++)
-    // {
-    //     Ld = world.lights[i]->Emitted_Light(ray);
-    //     l = world.lights[i].position;
+    vec3 Rd = this->color_diffuse;
+    vec3 Ld = {0,0,0};
+    vec3 n = normal;
+    vec3 l = {0,0,0};
+    for(unsigned int i = 0; i < world.lights.size(); i++)
+    {
+        Ld = world.lights[i]->Emitted_Light(ray);
+        l = world.lights[i].position;
         
-    //     Id = Rd * Ld * dot(n,l);
-    // }
+        Id = Rd * Ld * dot(n,l);
+    }
     
     
     //calculating specular
