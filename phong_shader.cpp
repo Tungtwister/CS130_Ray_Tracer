@@ -24,7 +24,7 @@ Shade_Surface(const Ray& ray,const vec3& intersection_point,
     vec3 Ra = this->color_ambient;
     Ia =  La * Ra;
     
-    //variable for diffuse
+    //variables for diffuse
     vec3 Rd = this->color_diffuse;
     vec3 Ld = {0,0,0};
     vec3 n = normal;
@@ -47,17 +47,17 @@ Shade_Surface(const Ray& ray,const vec3& intersection_point,
         decay = l.magnitude_squared();
         Ld = Ld/decay;
         l = l.normalized();
-        Id = Rd * Ld * std::max(dot(n,l),0.0);
+        Id += Rd * Ld * std::max(dot(n,l),0.0);
         
     //calculating specular
     // Is = Rs * Ls * max(dot(v,r),0)^alpha
-        Ls = Ld;
+        Ls = Ld; //Ls and Ld are the same thing
         r = l - n * (2*dot(n,l));
         r = r.normalized();
         v = intersection_point - ray.endpoint;
         v = v.normalized();
         
-        Is = Rs * Ls * pow(std::max(dot(v,r),0.0),specular_power);
+        Is += Rs * Ls * pow(std::max(dot(v,r),0.0),specular_power);
         
     }
 
