@@ -40,7 +40,7 @@ Shade_Surface(const Ray& ray,const vec3& intersection_point,
     
     for(unsigned int i = 0; i < world.lights.size(); i++)
     {
-        Ld = world.lights[i]->Emitted_Light(ray.direction);
+        Ld = world.lights[i]->Emitted_Light(-ray.direction);
         l = world.lights[i]->position - intersection_point;
         decay = l.magnitude_squared();
         Ld = Ld/decay;
