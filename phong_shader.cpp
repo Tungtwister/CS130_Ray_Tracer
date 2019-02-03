@@ -51,7 +51,7 @@ Shade_Surface(const Ray& ray,const vec3& intersection_point,
             max = 0;
         }
         
-        Id = Rd * Ld * max;
+        Id += Rd * Ld * max;
     }
     
     
