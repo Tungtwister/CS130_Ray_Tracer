@@ -36,7 +36,17 @@ Hit Sphere::Intersection(const Ray& ray, int part) const
     //technically one intersection, but unecessary due to precision errors as said by prof 
     else if(disc == 0)
     {
-        return hit;
+        if(t0 > small_t)
+        {
+            hit.object = this;
+            hit.dist = t0;
+            hit.part = part;
+            return hit;
+        }
+        else
+        {
+            return hit;
+        }
     }
     else
     {
@@ -48,7 +58,7 @@ Hit Sphere::Intersection(const Ray& ray, int part) const
 vec3 Sphere::Normal(const vec3& point, int part) const
 {
     vec3 normal;
-    TODO; // compute the normal direction
+    //TODO; // compute the normal direction
     normal = point - center;
     normal = normal.normalized();
     return normal;
