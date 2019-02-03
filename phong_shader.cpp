@@ -31,19 +31,14 @@ Shade_Surface(const Ray& ray,const vec3& intersection_point,
     vec3 Ld = {0,0,0};
     vec3 n = normal;
     vec3 l = {0,0,0};
-    vec3 ls = {0,0,0};
-    vec3 LtoI = {0,0,0};
     float decay;
     for(unsigned int i = 0; i < world.lights.size(); i++)
     {
         Ld = world.lights[i]->Emitted_Light(ray.direction);
-        ls = world.lights[i]->position;
-        LtoI = intersection_point - ls;
-        decay = LtoI.magnitude_squared();
+        l = world.lights[i]->position - intersection_point;
+        decay = l.magnitude_squared();
         Ld = Ld/decay;
-        l = -LtoI;
         l = l.normalized();
-        n = n.normalized();
         
         Id += Rd * Ld * std::max(dot(n,l),0.0);
     }
