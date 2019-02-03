@@ -44,13 +44,14 @@ Shade_Surface(const Ray& ray,const vec3& intersection_point,
         Ld = Ld/decay;
         l = -LtoI;
         l = l.normalized();
+        n = n.normalized();
         max = dot(n,l);
         if(max < 0)
         {
             max = 0;
         }
         
-        Id = Id + Rd * Ld * max;
+        Id = Rd * Ld * max;
     }
     
     
