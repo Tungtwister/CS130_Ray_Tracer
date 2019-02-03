@@ -32,6 +32,12 @@ Shade_Surface(const Ray& ray,const vec3& intersection_point,
     vec3 n = normal;
     vec3 l = {0,0,0};
     float decay;
+    
+    vec3 Rs = this->color_specular;
+    vec3 r = {0,0,0};
+    vec3 v = {0,0,0};
+    
+    
     for(unsigned int i = 0; i < world.lights.size(); i++)
     {
         Ld = world.lights[i]->Emitted_Light(ray.direction);
@@ -41,11 +47,23 @@ Shade_Surface(const Ray& ray,const vec3& intersection_point,
         n = n.normalized();
         l = l.normalized();
         Id = Rd * Ld * std::max(dot(n,l),0.0);
-    }
-    
-    
+        
     //calculating specular
-    // Is = Rs * Ls * max(dot(v,r),0)^alpha
+    // Is = Rs * Ls * max(dot(v,r),0)^alpha 
+        r = l - n * (2*dot(n,l));
+        r = r.normalized();
+        v = intersection_point - ray.endpoint;
+        v = v.normalized();
+        
+        Is = Rs * Ld * pow(std::max(dot(v,r),0.0),specular_power);
+        
+    }
+
+    
+    
+    
+    
+
     
     color = Ia + Id + Is;
     return color;
