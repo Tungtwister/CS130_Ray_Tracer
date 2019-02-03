@@ -55,7 +55,7 @@ Shade_Surface(const Ray& ray,const vec3& intersection_point,
         v = intersection_point - ray.endpoint;
         v = v.normalized();
         
-        Is = Rs * Ld * pow(std::max(dot(v,r),0.0),specular)
+        Is = Rs * Ld * pow(std::max(dot(v,r),0.0),specular_power);
         
     }
 
