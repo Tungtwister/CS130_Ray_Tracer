@@ -29,7 +29,7 @@ Shade_Surface(const Ray& ray,const vec3& intersection_point,
     
     vec3 Rd = this->color_diffuse;
     vec3 Ld = {0,0,0};
-    vec3 n = normal;
+    vec3 n = -normal;
     vec3 l = {0,0,0};
     float decay;
     for(unsigned int i = 0; i < world.lights.size(); i++)
@@ -39,7 +39,6 @@ Shade_Surface(const Ray& ray,const vec3& intersection_point,
         decay = l.magnitude_squared();
         Ld = Ld/decay;
         l = l.normalized();
-        
         Id += Rd * Ld * std::max(dot(n,l),0.0);
     }
     
