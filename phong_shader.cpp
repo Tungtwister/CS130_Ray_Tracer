@@ -33,7 +33,6 @@ Shade_Surface(const Ray& ray,const vec3& intersection_point,
     vec3 l = {0,0,0};
     vec3 ls = {0,0,0};
     vec3 LtoI = {0,0,0};
-    float max;
     float decay;
     for(unsigned int i = 0; i < world.lights.size(); i++)
     {
@@ -45,13 +44,8 @@ Shade_Surface(const Ray& ray,const vec3& intersection_point,
         l = -LtoI;
         l = l.normalized();
         n = n.normalized();
-        max = dot(n,l);
-        if(max < 0)
-        {
-            max = 0;
-        }
         
-        Id += Rd * Ld * max;
+        Id += Rd * Ld * std::max(dot(n,l),0);
     }
     
     
