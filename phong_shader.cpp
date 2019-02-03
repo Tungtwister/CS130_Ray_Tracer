@@ -58,7 +58,6 @@ Shade_Surface(const Ray& ray,const vec3& intersection_point,
         v = v.normalized();
         
         Is = Rs * Ls * pow(std::max(dot(v,r),0.0),specular_power);
-        
     }
 
     
