@@ -52,13 +52,12 @@ Shade_Surface(const Ray& ray,const vec3& intersection_point,
     //calculating specular
     // Is = Rs * Ls * max(dot(v,r),0)^alpha
         Ls = Ld; //Ls and Ld are the same thing
-        r = (2*dot(n,l)) * n - l;
+        r = (2*dot(n,l)) * n - l; //i love wikipedia
         r = r.normalized();
         v = ray.endpoint - intersection_point;
         v = v.normalized();
         
         Is += Rs * Ls * pow(std::max(dot(v,r),0.0),specular_power);
-        
     }
 
 
