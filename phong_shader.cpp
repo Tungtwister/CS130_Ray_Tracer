@@ -13,10 +13,12 @@ Shade_Surface(const Ray& ray,const vec3& intersection_point,
     vec3 Ia = {0,0,0}; //ambient
     vec3 Id = {0,0,0}; //diffuse
     vec3 Is = {0,0,0}; //specular
-    //L which is the direction vector from the point on the surface toward each light source ( {\displaystyle m} m specifies the light source),
-    //N which is the normal at this point on the surface,
-    //R which is the direction that a perfectly reflected ray of light would take from this point on the surface
-    //V which is the direction pointing towards the viewer (such as a virtual camera).
+    //R is the reflectance, ratio of reflection of incoming light
+    //L is the intensities, often as RGB values, "color of the lights"
+    //l which is the direction vector from the point on the surface toward each light source,
+    //n which is the normal at this point on the surface,
+    //r which is the direction that a perfectly reflected ray of light would take from this point on the surface
+    //v which is the direction pointing towards the viewer (such as a virtual camera).
     
     //calulating ambient
     // Ia = Ra * La     0 <= Ra <= 1
