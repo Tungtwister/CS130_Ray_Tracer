@@ -54,19 +54,19 @@ Shade_Surface(const Ray& ray,const vec3& intersection_point,
         Ls = Ld; //Ls and Ld are the same thing
         r = l - n * (2*dot(n,l));
         r = r.normalized();
-        v = intersection_point - ray.endpoint;
+        v = ray.endpoint - intersection_point;
         v = v.normalized();
         
         Is += Rs * Ls * pow(std::max(dot(v,r),0.0),specular_power);
         
     }
 
-    
-    
-    
-    
 
-    
+    //still gotta do shadows
+    //pseudo code: 
+    //if ( ! shadow ray hits an object )
+        //add light’s diffuse and specular components 
+
     color = Ia + Id + Is;
     return color;
 }
