@@ -13,7 +13,7 @@ Hit Sphere::Intersection(const Ray& ray, int part) const
     float disc = pow(b,2) - 4 * a * c; // finding the discriminant
     float t0 =  (-b + sqrt(disc)) / (2 * a); //finding t using quadratic equation
 	float t1 =  (-b - sqrt(disc)) / (2 * a);
-	if(t1 < t0) //unsure to compare if t0 < small_t or if t0 < t1
+	if(t1 < t0) //unsure to compare if t0 < small_t or if t1 < t0
 	{
 	    std::swap(t0,t1);
 	}
@@ -36,17 +36,7 @@ Hit Sphere::Intersection(const Ray& ray, int part) const
     //technically one intersection, but unecessary due to precision errors as said by prof 
     else if(disc == 0)
     {
-        if(t0 > small_t)
-        {
-            hit.object = this;
-            hit.dist = t0;
-            hit.part = part;
-            return hit;
-        }
-        else
-        {
-            return hit;
-        }
+        return hit;
     }
     else
     {
