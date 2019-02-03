@@ -12,8 +12,8 @@ Hit Sphere::Intersection(const Ray& ray, int part) const
     float c = dot(v, v) - (radius * radius);
     float disc = pow(b,2) - 4 * a * c; // finding the discriminant
     float t0 =  (-b + sqrt(disc)) / (2 * a); //finding t using quadratic equation
-	float t1 =  (-b - sqrt(disc)) / (2 * a);
-	if(t1 < t0) //unsure to compare if t0 < small_t or if t0 < t1
+	float t1 =  (-b - sqrt(disc)) / (2 * a); //t0 postive version, t1 negative version
+	if(t1 < t0) //unsure to compare if t0 < small_t or if t1 < t0
 	{
 	    std::swap(t0,t1);
 	}
