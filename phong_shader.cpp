@@ -41,6 +41,18 @@ Shade_Surface(const Ray& ray,const vec3& intersection_point,
     
     for(unsigned int i = 0; i < world.lights.size(); i++)
     {
+      if(world.enable_shadows)
+      {
+        Hit hit;
+        Ray temp;
+            temp.endpoint = intersection_point;
+            temp.direction = l.normalized();
+            hit = world.Closest_Intersection(temp);
+            if(hit.dist < l.magnitude())
+            {
+	              continue;
+            }
+      }
     //calculating diffuse
     // Id = Rd * Ld * max(dot(n,l),0)
         Ld = world.lights[i]->Emitted_Light(ray.direction);
@@ -60,7 +72,6 @@ Shade_Surface(const Ray& ray,const vec3& intersection_point,
         
         Is += Rs * Ls * pow(std::max(dot(v,r),0.0),specular_power);
     }
-
 
     //still gotta do shadows
     //pseudo code: 
